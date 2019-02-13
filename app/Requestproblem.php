@@ -11,7 +11,7 @@ class Requestproblem extends Model
      *
      * @var string
      */
-    protected $table = 'requestproblem';
+    protected $table = 'requestproblems';
        /**
      * The attributes that are mass assignable.
      *

@@ -25,7 +25,7 @@ class Request_ProblemController extends Controller
      */
     public function create()
     {
-        //
+        //return view('users.problems');
     }
 
     /**
@@ -37,7 +37,7 @@ class Request_ProblemController extends Controller
      */
     public function store(Request $request)
     {
-        return 'toooooooooooo';
+        return view('welcome');
     }
 
     /**
@@ -84,9 +84,26 @@ class Request_ProblemController extends Controller
     {
         //
     }
-    public function request_all()
+    public function request_all(Request $request)
     {
-        return view('users.request_all');
+      $requestproblem = new Requestproblem;
+      $requestproblem->name = $request->name;
+      $requestproblem->position = $request->position;
+      $requestproblem->location = $request->location;
+      $requestproblem->tel = $request->tel;
+      $requestproblem->email = $request->email;
+      $requestproblem->device = $request->device;
+      $requestproblem->device_problem = $request->device_problem;
+      $requestproblem->case = $request->case;
+
+      $requestproblem->save();
+
+      return view('users.request_all');
     }
+
+    // public function problems_list()
+    // {
+    //     return view('users.problems_list');
+    // }
 
 }
