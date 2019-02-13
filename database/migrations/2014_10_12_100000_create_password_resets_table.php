@@ -30,3 +30,14 @@ class CreatePasswordResetsTable extends Migration
         Schema::dropIfExists('password_resets');
     }
 }
+
+// $table->increments('id');
+// $table->string('name');
+// $table->string('position');
+// $table->string('location');
+// $table->string('tel');
+// $table->string('email');
+// $table->string('device');
+// $table->string('device_problem');
+// $table->string('case');
+// $table->timestamps();

@@ -19,7 +19,7 @@ class CreateRequestproblemsTable extends Migration
             $table->string('position');
             $table->string('location');
             $table->string('tel');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('device');
             $table->string('device_problem');
             $table->string('case');
