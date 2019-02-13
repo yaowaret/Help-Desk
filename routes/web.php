@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('request_all','Request_ProblemController@request_all')->name('request_all');
 Route::resource('problems','Request_ProblemController');
+Route::get('/problems_list', 'Problems_listController@index')->name('problems_list');

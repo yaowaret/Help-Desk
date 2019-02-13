@@ -14,8 +14,8 @@
                     </div>
                     @endif
 
-                    <form mathod="GET|HEAD" action="{{route('request_all')}}">
-                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                    <form mathod="POST" action="{{route('request_all')}}">
+                       {{ csrf_field() }}
                         <div class="form-row">
 
                             <div class="form-group col-md-6">

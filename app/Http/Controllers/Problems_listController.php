@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class HomeController extends Controller
+use DB;
+class Problems_listController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,7 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $problemslist = DB::select('select * from requestproblems');
+        return view('problems_list',['problemslist'=>$problemslist]);
     }
-   
+    // public function index() {
+    //     $users = DB::select('select * from position');
+    //     return view('home',['users'=>$users]);
+    //  }
 }

@@ -37,7 +37,7 @@ class Request_ProblemController extends Controller
      */
     public function store(Request $request)
     {
-        return view('welcome');
+        //return view('welcome');
     }
 
     /**
@@ -86,6 +86,8 @@ class Request_ProblemController extends Controller
     }
     public function request_all(Request $request)
     {
+      
+
       $requestproblem = new Requestproblem;
       $requestproblem->name = $request->name;
       $requestproblem->position = $request->position;
@@ -98,11 +100,17 @@ class Request_ProblemController extends Controller
 
       $requestproblem->save();
 
-      return view('users.request_all');
+     
+      return redirect()->route('problems_list')->with('success', 'บันทึกข้อมูลเรียบร้อย');
     }
 
-    // public function problems_list()
-    // {
+    
+   
+   
+
+    // }
+    // public function problems_list() 
+    // { 
     //     return view('users.problems_list');
     // }
 

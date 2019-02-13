@@ -20,5 +20,15 @@ class Requestproblem extends Model
     protected $fillable = [
         'name', 'position', 'location', 'tel', 'email', 'password', 'device', 'device_problem', 'case',
     ];
+
+    
+    // /**
+    //  * The attributes that should be hidden for arrays.
+    //  *
+    //  * @var array
+    //  */
+    // protected $hidden = [
+    //     'name', 'position', 'location', 'tel', 'email', 'password', 'device', 'device_problem', 'case', 'remember_token',
+    // ];
 }
 
