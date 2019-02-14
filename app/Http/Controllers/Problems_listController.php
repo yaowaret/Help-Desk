@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use DB;
+
 class Problems_listController extends Controller
 {
     /**
@@ -23,8 +23,9 @@ class Problems_listController extends Controller
      */
     public function index()
     {
-        $problemslist = DB::select('select * from requestproblems');
-        return view('problems_list',['problemslist'=>$problemslist]);
+        $problemslist = DB::select("select * from requestproblems ");
+     //   $problemslist = DB::table('requestproblems')->where_email('manee@gmail.com')->first();
+        return view('problems_list', ['problemslist' => $problemslist]);
     }
     // public function index() {
     //     $users = DB::select('select * from position');
