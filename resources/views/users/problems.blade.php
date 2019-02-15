@@ -71,6 +71,7 @@
                                     <label class="custom-control-label" for="non-urgent">Non-Urgent</label>
                                 </div>
                             </div>
+                            
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
