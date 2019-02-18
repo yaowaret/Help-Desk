@@ -77,6 +77,7 @@
                         </div>
                         <button type="submit" onclick="return confirm('Are you sure to Update?')"
                             class="btn btn-primary">Submit</button>
+                            <a href="/problems_list"class="btn btn-danger">Cancle</a>
                         <!-- <button href="{{ route('problems_list') }}"
                             class="btn btn-primary">Submit</button> -->
 

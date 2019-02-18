@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">HELP</div>
+                <div class="card-header">Request Problems</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -75,10 +75,11 @@
                             </div>
 
                         </div>
-                        <button type="submit" onclick="return confirm('Are you sure to Update?')"
-                            class="btn btn-primary">Submit</button>
-                        <!-- <button type="submit" class="btn btn-primary"  onclick="return confirm('Are you sure to Submit?')">Submit</button> -->
-
+                        <center>
+                            <button type="submit" onclick="return confirm('Are you sure to Submit?')"
+                                class="btn btn-primary">Submit</button>
+                            <button class="btn btn-danger" name="clear" type="reset">Cancle</button>
+                        </center>
 
                     </form>
                 </div>

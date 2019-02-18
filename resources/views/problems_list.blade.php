@@ -9,8 +9,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
+                <!-- <div class="card-header"><p> <b>Name: </b> {{ Auth::user()->name }} <b>Position: </b> {{ Auth::user()->position }} <b>Location: </b>
+        {{ Auth::user()->location }}</div> -->
                     <table class="table table-hover">
-                        <thead>
+                        <thead> 
                             <tr>
                                 <th scope="col">Date</th>
                                 <th scope="col">Device</th>
@@ -18,8 +20,8 @@
                                 <th scope="col">In case of</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Authorities</th>
-                                <th scope="col">Delete</th>
-                                <th scope="col">Edit</th>
+                                <th scope="col" class="text-center">Action</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -31,22 +33,22 @@
                                 <td>{{ $problemslists->case }}</td>
                                 <td></td>
                                 <td></td>
-                                <td> <a href="/delete/{{$problemslists->id }}"
-                                        onclick="return confirm('Are you sure to delete?')"
-                                        class="btn btn-outline-danger">Delete</a> </td>
-                                <td> <a href="/problems_edit/{{$problemslists->id }}" class="btn btn-primary">Edit</a>
-                                    <!-- <a href="{{route('problems_edit',$problemslists->id)}}"  -->
-                                    <!-- class="btn btn-outline-info">Edit</a>  -->
+                                <td class="text-center">
+                                    <a href="/problems_edit/{{$problemslists->id }}" class="btn btn-success btn-sm"><i
+                                            class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ||
+                                    <a class="btn btn-danger btn-sm" href="/delete/{{$problemslists->id }}"
+                                        onclick="return confirm('Are you sure to delete?')">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                 </td>
 
                             </tr>
                             @endforeach
                         </tbody>
+                        <!-- <a href="{{ route('problems') }}" class="btn btn-info">Back</a> -->
                     </table>
-                    <a href="{{ route('problems') }}" class="btn btn-info">Back</a>
-
                 </div>
             </div>
-        </div>
+        </div> <br>
+        <a class="btn btn-primary btn-sm" a href="{{ route('problems') }}"><i class="fa fa-plus" aria-hidden="true"></i> Reques Problems</a>
 </div>
 @endsection
