@@ -76,7 +76,7 @@
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submite</button>
                         <!-- <button type="submit" class="btn btn-primary"  onclick="return confirm('Are you sure to Submit?')">Submit</button> -->
 
 
