@@ -34,8 +34,10 @@
                                 <td> <a href="/delete/{{$problemslists->id }}"
                                         onclick="return confirm('Are you sure to delete?')"
                                         class="btn btn-outline-danger">Delete</a> </td>
-                                <td> <a href="/edit/{{$problemslists->id }}"
-                                       class="btn btn-outline-info">Edit</a> </td>
+                                <td> <a href="/problems_edit/{{$problemslists->id }}" class="btn btn-primary">Edit</a>
+                                    <!-- <a href="{{route('problems_edit',$problemslists->id)}}"  -->
+                                    <!-- class="btn btn-outline-info">Edit</a>  -->
+                                </td>
 
                             </tr>
                             @endforeach

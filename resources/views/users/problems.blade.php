@@ -15,7 +15,7 @@
                     @endif
 
                     <form mathod="POST" action="{{route('request_all')}}">
-                       {{ csrf_field() }}
+                        {{ csrf_field() }}
                         <div class="form-row">
 
                             <div class="form-group col-md-6">
@@ -46,11 +46,13 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="device">Device</label>
-                                <input type="text" class="form-control" name="device" rows="3" placeholder="Please Enter Your Device">
+                                <input type="text" class="form-control" name="device" rows="3"
+                                    placeholder="Please Enter Your Device">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="deviceproblems">Device Problems</label>
-                                <textarea type="text" class="form-control" name="device_problem" rows="3" placeholder="Please Enter Your Device Problems"></textarea>
+                                <textarea type="text" class="form-control" name="device_problem" rows="3"
+                                    placeholder="Please Enter Your Device Problems"></textarea>
                             </div>
 
                             <div class="form-group col-md-12" align="center">
@@ -71,12 +73,13 @@
                                     <label class="custom-control-label" for="non-urgent">Non-Urgent</label>
                                 </div>
                             </div>
-                            
+
                         </div>
-                        <button type="submit" class="btn btn-primary" >Submit</button>
+                        <button type="submit" onclick="return confirm('Are you sure to Update?')"
+                            class="btn btn-primary">Submit</button>
                         <!-- <button type="submit" class="btn btn-primary"  onclick="return confirm('Are you sure to Submit?')">Submit</button> -->
 
-                       
+
                     </form>
                 </div>
             </div>

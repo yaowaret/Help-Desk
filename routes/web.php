@@ -26,5 +26,6 @@ Route::get('/problems_list', 'Request_ProblemController@problems_list')->name('p
 Route::get('/delete/{id}', 'Request_ProblemController@delete');
 Route::get('/problems', 'Request_ProblemController@index')->name('problems');
 
-Route::get('/edit/{id}', 'Request_ProblemController@delete');
-
+Route::get('/problems_edit/{id}', 'Request_ProblemController@edit')->name('edit');
+Route::get('/update/{id}', 'Request_ProblemController@update')->name('update');
+Route::get('problems_edit','Request_ProblemController@problems_edit')->name('problems_edit');

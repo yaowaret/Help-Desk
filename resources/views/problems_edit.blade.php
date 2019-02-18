@@ -14,46 +14,45 @@
                     </div>
                     @endif
 
-                    <form mathod="POST" action="{{route('/problems_list/'.$problemslist->id)}}"> 
-                        {{ method_field('PUT') }} 
+                    <form mathod="POST" action="{{route('update',$problemslist->id)}}">
                         {{ csrf_field() }}
                         <div class="form-row">
 
                             <div class="form-group col-md-6">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" value={{ Auth::user()->name }} name="name"
+                                <input type="text" class="form-control" value="{{ Auth::user()->name }}" name="name"
                                     rows="3" readonly>
                                 <!-- <span class="input-group-text" >{{ Auth::user()->name }}</span> -->
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="position">Position</label>
-                                <input type="text" class="form-control" value={{ Auth::user()->position }}
+                                <input type="text" class="form-control" value="{{ Auth::user()->position }}"
                                     name="position" rows="3" readonly>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="location">Location</label>
-                                <input type="text" class="form-control" value={{ Auth::user()->location }}
+                                <input type="text" class="form-control" value="{{ Auth::user()->location }}"
                                     name="location" rows="3" readonly>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="tel">Tel</label>
-                                <input type="text" class="form-control" value={{ Auth::user()->tel }} name="tel"
+                                <input type="text" class="form-control" value="{{ Auth::user()->tel }}" name="tel"
                                     rows="3" readonly>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" value={{ Auth::user()->email }} name="email"
+                                <input type="text" class="form-control" value="{{ Auth::user()->email }}" name="email"
                                     rows="3" readonly>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="device">Device</label>
-                                <input type="text" class="form-control" value={{ $problemslists->device }} name="device" rows="3"
-                                    placeholder="Please Enter Your Device">
+                                <input type="text" class="form-control" value="{{ $problemslist->device}}" name="device"
+                                    rows="3" placeholder="Please Enter Your Device">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="deviceproblems">Device Problems</label>
-                                <textarea type="text" class="form-control" value={{ $problemslists->device_problem }}} name="device_problem" rows="3"
-                                    placeholder="Please Enter Your Device Problems"></textarea>
+                                <input type="text" class="form-control" value="{{ $problemslist->device_problem}}"
+                                    name="device_problem" rows="3"></textarea>
                             </div>
 
                             <div class="form-group col-md-12" align="center">
@@ -76,9 +75,10 @@
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary">Submite</button>
-                        <!-- <button type="submit" class="btn btn-primary"  onclick="return confirm('Are you sure to Submit?')">Submit</button> -->
-
+                        <button type="submit" onclick="return confirm('Are you sure to Update?')"
+                            class="btn btn-primary">Submit</button>
+                        <!-- <button href="{{ route('problems_list') }}"
+                            class="btn btn-primary">Submit</button> -->
 
                     </form>
                 </div>

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use App\Requestproblem;
 use App\Http\Controllers\Controller;
+use App\Requestproblem;
+use DB;
 use Illuminate\Http\Request;
 
 class Request_ProblemController extends Controller
@@ -38,7 +38,7 @@ class Request_ProblemController extends Controller
      */
     public function store(Request $request)
     {
-        //return view('welcome');
+        //
     }
 
     /**
@@ -49,7 +49,7 @@ class Request_ProblemController extends Controller
      */
     public function problems_list()
     {
-        $problemslist = DB::select("select * from requestproblems");
+        $problemslist = Requestproblem::all();
         return view('problems_list', ['problemslist' => $problemslist]);
     }
 
@@ -61,9 +61,8 @@ class Request_ProblemController extends Controller
      */
     public function edit($id)
     {
-        $problemslist = DB::select("select * from requestproblems");
-
-        return view('problems_edit', ['problemslist' => $problemslist]);
+        $problemslist = Requestproblem::find($id);
+        return view('problems_edit', compact('problemslist'));
     }
 
     /**
@@ -75,7 +74,18 @@ class Request_ProblemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $requestproblem = Requestproblem::find($id);
+        $requestproblem->name = $request->name;
+        $requestproblem->position = $request->position;
+        $requestproblem->location = $request->location;
+        $requestproblem->tel = $request->tel;
+        $requestproblem->email = $request->email;
+        $requestproblem->device = $request->device;
+        $requestproblem->device_problem = $request->device_problem;
+        $requestproblem->case = $request->case;
+        $requestproblem->save();
+
+        return redirect()->route('problems_list')->with('success', 'บันทึกข้อมูลเรียบร้อย');
     }
 
     /**
@@ -91,25 +101,18 @@ class Request_ProblemController extends Controller
     }
     public function request_all(Request $request)
     {
-      
+        $requestproblem = new Requestproblem;
+        $requestproblem->name = $request->name;
+        $requestproblem->position = $request->position;
+        $requestproblem->location = $request->location;
+        $requestproblem->tel = $request->tel;
+        $requestproblem->email = $request->email;
+        $requestproblem->device = $request->device;
+        $requestproblem->device_problem = $request->device_problem;
+        $requestproblem->case = $request->case;
+        $requestproblem->save();
 
-      $requestproblem = new Requestproblem;
-      $requestproblem->name = $request->name;
-      $requestproblem->position = $request->position;
-      $requestproblem->location = $request->location;
-      $requestproblem->tel = $request->tel;
-      $requestproblem->email = $request->email;
-      $requestproblem->device = $request->device;
-      $requestproblem->device_problem = $request->device_problem;
-      $requestproblem->case = $request->case;
-
-      $requestproblem->save();
-
-     
-      return redirect()->route('problems_list')->with('success', 'บันทึกข้อมูลเรียบร้อย');
+        return redirect()->route('problems_list')->with('success', 'บันทึกข้อมูลเรียบร้อย');
     }
-
-     
-
 
 }
