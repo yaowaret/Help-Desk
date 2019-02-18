@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Requestproblem;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -46,9 +47,10 @@ class Request_ProblemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function problems_list()
     {
-        //
+        $problemslist = DB::select("select * from requestproblems");
+        return view('problems_list', ['problemslist' => $problemslist]);
     }
 
     /**
@@ -59,7 +61,9 @@ class Request_ProblemController extends Controller
      */
     public function edit($id)
     {
-        //
+        $problemslist = DB::select("select * from requestproblems");
+
+        return view('problems_edit', ['problemslist' => $problemslist]);
     }
 
     /**
@@ -80,9 +84,10 @@ class Request_ProblemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        DB::table('requestproblems')->where('id', $id)->delete();
+        return redirect()->route('problems_list')->with('succes', 'ลบข้อมูลเรียบร้อย');
     }
     public function request_all(Request $request)
     {
@@ -104,14 +109,7 @@ class Request_ProblemController extends Controller
       return redirect()->route('problems_list')->with('success', 'บันทึกข้อมูลเรียบร้อย');
     }
 
-    
-   
-   
+     
 
-    // }
-    // public function problems_list() 
-    // { 
-    //     return view('users.problems_list');
-    // }
 
 }
