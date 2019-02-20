@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -47,29 +48,29 @@
                             <div class="form-group col-md-6">
                                 <label for="device">Device</label>
                                 <input type="text" class="form-control" name="device" rows="3"
-                                    placeholder="Please Enter Your Device">
+                                    placeholder="Please Enter Your Device" required>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="deviceproblems">Device Problems</label>
                                 <textarea type="text" class="form-control" name="device_problem" rows="3"
-                                    placeholder="Please Enter Your Device Problems"></textarea>
+                                    placeholder="Please Enter Your Device Problems" required></textarea>
                             </div>
 
                             <div class="form-group col-md-12" align="center">
                                 <label for="inputPassword4">In case of : </label>
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="enereent" name="case" value="Enereent"
-                                        class="custom-control-input">
+                                        class="custom-control-input" required>
                                     <label class="custom-control-label" for="enereent">Enereent</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="urgent" name="case" value="Urgent"
-                                        class="custom-control-input">
+                                        class="custom-control-input" required>
                                     <label class="custom-control-label" for="urgent">Urgent</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="non-urgent" name="case" value="Non-Urgent"
-                                        class="custom-control-input">
+                                        class="custom-control-input" required>
                                     <label class="custom-control-label" for="non-urgent">Non-Urgent</label>
                                 </div>
                             </div>

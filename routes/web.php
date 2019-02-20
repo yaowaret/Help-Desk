@@ -29,3 +29,8 @@ Route::get('/problems', 'Request_ProblemController@index')->name('problems');
 Route::get('/problems_edit/{id}', 'Request_ProblemController@edit')->name('edit');
 Route::get('/update/{id}', 'Request_ProblemController@update')->name('update');
 Route::get('problems_edit','Request_ProblemController@problems_edit')->name('problems_edit');
+
+
+// Route::get('/edit_profile/{id}', 'RegisterController@edit')->name('edit');
+// Route::get('/update/{id}', 'RegisterController@update')->name('update');
+// Route::get('edit_profile','RegisterController@edit_profile')->name('edit_profile');

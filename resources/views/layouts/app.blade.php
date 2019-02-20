@@ -44,12 +44,12 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                   
+
 
                 </ul>
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" a href="/problems_list">
                             <i class="fa fa-bell">
                                 <span class="badge badge-danger">11</span>
                             </i>
@@ -67,10 +67,12 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();"><i
+                                    class="fa fa-sign-out" aria-hidden="true"></i>
                                 {{ __('Logout') }}
                             </a>
-                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-user" aria-hidden="true"></i>
+                                 Profile</a>
                             <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>

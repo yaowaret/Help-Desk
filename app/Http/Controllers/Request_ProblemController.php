@@ -36,10 +36,7 @@ class Request_ProblemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    
 
     /**
      * Display the specified resource.
@@ -113,6 +110,21 @@ class Request_ProblemController extends Controller
         $requestproblem->save();
 
         return redirect()->route('problems_list')->with('success', 'บันทึกข้อมูลเรียบร้อย');
+    }
+
+ 
+
+    public function store(){
+        $this->validate(request(), [
+            'name' => ['required', 'string', 'max:255'],
+            'position' => ['required', 'string', 'max:255'],
+            'location' => ['required', 'string', 'max:255'],
+            'tel' => ['required', 'string', 'min:10', 'max:15'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'device' => ['required', 'string', 'max:255'],
+            'device_problem' => ['required', 'string', 'max:255'],
+            'case' => ['required', 'string', 'max:255'],
+        ]);
     }
 
 }
