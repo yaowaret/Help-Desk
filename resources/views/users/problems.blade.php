@@ -15,6 +15,10 @@
                     </div>
                     @endif
 
+                    <div class="alert alert-success" role="alert">
+                       <p>You're logged in as USERS<p>
+                    </div>
+
                     <form mathod="POST" action="{{route('request_all')}}">
                         {{ csrf_field() }}
                         <div class="form-row">
