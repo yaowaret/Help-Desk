@@ -16,7 +16,6 @@
 // });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('request_all','Request_ProblemController@request_all')->name('request_all');
@@ -30,9 +29,6 @@ Route::get('/problems_edit/{id}', 'Request_ProblemController@edit')->name('edit'
 Route::get('/update/{id}', 'Request_ProblemController@update')->name('update');
 Route::get('problems_edit','Request_ProblemController@problems_edit')->name('problems_edit');
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-
 
 Route::group(['middlewere' => ['web','auth']], function(){
     Route::get('/', function () {
@@ -40,11 +36,11 @@ Route::group(['middlewere' => ['web','auth']], function(){
     });
     
     Route::get('/home', function(){
-      if (Auth::user()->admin == 0){
+      if (Auth::user()->status == 0){
         return view('home');
         }else{
         $users['users'] = \App\User::all();
-        return view('problems', $users); 
+        return view('adminhome', $users); 
         }
     });
     
