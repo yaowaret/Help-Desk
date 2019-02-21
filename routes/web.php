@@ -37,7 +37,7 @@ Route::group(['middlewere' => ['web','auth']], function(){
     
     Route::get('/home', function(){
       if (Auth::user()->status == 0){
-        return view('home');
+        return view('users.problems');
         }else{
         $users['users'] = \App\User::all();
         return view('adminhome', $users); 
