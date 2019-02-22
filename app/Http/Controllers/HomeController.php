@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Requestproblem;
+use DB;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,4 +28,5 @@ class HomeController extends Controller
     {
         return view('users.problems');
     }
+
 }

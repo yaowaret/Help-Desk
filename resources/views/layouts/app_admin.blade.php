@@ -29,7 +29,8 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+        <!-- <nav class="navbar navbar-icon-top navbar-expand-sm navbar-light bg-warning"> -->
+        <nav class="navbar navbar-expand-sm navbar-light bg-warning">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,17 +45,30 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                                    <a class="nav-link" a href="/problems_list">
+                                        Reprot
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" a href="/problems_list">
+                                        Manage
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" a href="/problems_list">
+                                        Repair List
+                                        <span class="badge badge-danger">11</span>
+                                    </a>
+                                </li>
+
 
 
                 </ul>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
 
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
                             @guest
                             <li class="nav-item">
@@ -66,15 +80,9 @@
                             </li>
                             @endif
                             @else
-                            <ul class="navbar-nav ">
-                                <li class="nav-item">
-                                    <a class="nav-link" a href="/problems_list">
-                                        <i class="fa fa-bell">
-                                            <span class="badge badge-danger">11</span>
-                                        </i>
-                                        Notifications
-                                    </a>
-                                </li>
+                            <!-- <ul class="navbar-nav ml-auto"> -->
+                            <ul class="navbar-nav ml-auto">
+
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i
