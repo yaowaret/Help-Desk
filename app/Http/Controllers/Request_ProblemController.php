@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Requestproblem;
+use Auth;
 use DB;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,6 @@ class Request_ProblemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
 
     /**
      * Display the specified resource.
@@ -44,13 +44,14 @@ class Request_ProblemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function problems_list()
+    public function problems_list(Request $request)
     {
-        $problemslist = Requestproblem::all();
+        $user_id = Auth::id();
+        $problemslist = Requestproblem::where('user_id','=', $user_id)->get();
+        // dd($problemslist);
         return view('problems_list', ['problemslist' => $problemslist]);
     }
 
-    
     /**
      * Show the form for editing the specified resource.
      *
@@ -113,9 +114,8 @@ class Request_ProblemController extends Controller
         return redirect()->route('problems_list')->with('success', 'บันทึกข้อมูลเรียบร้อย');
     }
 
- 
-
-    public function store(){
+    public function store()
+    {
         $this->validate(request(), [
             'name' => ['required', 'string', 'max:255'],
             'position' => ['required', 'string', 'max:255'],

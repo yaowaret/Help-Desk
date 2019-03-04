@@ -46,3 +46,4 @@ Route::group(['middlewere' => ['web', 'auth']], function () {
 });
 
 Route::get('/admin', 'AdminController@index');
+Route::get('/manage', 'AdminController@manage');

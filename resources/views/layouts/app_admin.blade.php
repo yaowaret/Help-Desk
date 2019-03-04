@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -13,13 +14,10 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -46,72 +44,72 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                                    <a class="nav-link" a href="/problems_list">
-                                        Reprot
-                                    </a>
-                                </li>
+                        <a class="nav-link" a href="/problems_list">
+                            Reprot
+                        </a>
+                    </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" a href="/problems_list">
-                                        Manage
-                                    </a>
-                                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" a href="/manage">
+                            Manage
+                        </a>
+                    </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" a href="/problems_list">
-                                        Repair List
-                                        <span class="badge badge-danger">11</span>
-                                    </a>
-                                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" a href="/home">
+                            Repair List
+                            <span class="badge badge-danger">11</span>
+                        </a>
+                    </li>
 
 
 
                 </ul>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                            <!-- Authentication Links -->
-                            @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                            @endif
-                            @else
-                            <!-- <ul class="navbar-nav ml-auto"> -->
-                            <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                    @endif
+                    @else
+                    <!-- <ul class="navbar-nav ml-auto"> -->
+                    <ul class="navbar-nav ml-auto">
 
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i
-                                            class="fa fa-user" aria-hidden="true">
-                                        </i>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
-                                    </a>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i
+                                    class="fa fa-user" aria-hidden="true">
+                                </i>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
 
 
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i
-                                                class="fa fa-sign-out" aria-hidden="true"></i>
-                                            {{ __('Logout') }}
-                                        </a>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-user" aria-hidden="true"></i>
-                                            Profile</a>
+                                        class="fa fa-sign-out" aria-hidden="true"></i>
+                                    {{ __('Logout') }}
+                                </a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-user" aria-hidden="true"></i>
+                                    Profile</a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                                @endguest
-                            </ul>
-                    </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endguest
+                    </ul>
+                </div>
                 </ul>
 
             </div>

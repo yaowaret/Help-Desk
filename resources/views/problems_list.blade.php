@@ -11,6 +11,7 @@
                 <div class="card">
                     <!-- <div class="card-header"><p> <b>Name: </b> {{ Auth::user()->name }} <b>Position: </b> {{ Auth::user()->position }} <b>Location: </b>
         {{ Auth::user()->location }}</div> -->
+
                     <table class="table table-hover">
                         <thead>
                             <tr>

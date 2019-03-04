@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -15,13 +14,15 @@
                     </div>
                     @endif
 
-                    <div class="alert alert-success" role="alert">
-                       <p>You're logged in as USERS<p>
-                    </div>
-
                     <form mathod="POST" action="{{route('request_all')}}">
                         {{ csrf_field() }}
                         <div class="form-row">
+
+                            <!-- <div class="form-group col-md-12">
+                                <label for="user_id">ID</label>
+                                <input type="text" class="form-control" value={{ Auth::user()->id }} name="user_id"
+                                    rows="3" readonly>
+                            </div> -->
 
                             <div class="form-group col-md-6">
                                 <label for="name">Name</label>

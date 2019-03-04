@@ -13,4 +13,9 @@ class AdminController extends Controller
         $problemslist = DB::select('select * from requestproblems');
         return view('admin',['problemslist'=>$problemslist]);
      }
+
+     public function manage() {
+        $problemslist = DB::select('select * from requestproblems');
+        return view('manage',['problemslist'=>$problemslist]);
+     }
 }
