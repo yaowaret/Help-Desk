@@ -47,7 +47,7 @@ class Request_ProblemController extends Controller
     public function problems_list(Request $request)
     {
         $user_id = Auth::id();
-        $problemslist = Requestproblem::where('user_id','=', $user_id)->get();
+        $problemslist = Requestproblem::where('user_id', '=', $user_id)->get();
         // dd($problemslist);
         return view('problems_list', ['problemslist' => $problemslist]);
     }
@@ -101,6 +101,7 @@ class Request_ProblemController extends Controller
     public function request_all(Request $request)
     {
         $requestproblem = new Requestproblem;
+        $requestproblem->user_id = auth()->id();
         $requestproblem->name = $request->name;
         $requestproblem->position = $request->position;
         $requestproblem->location = $request->location;
