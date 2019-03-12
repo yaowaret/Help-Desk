@@ -32,14 +32,9 @@
                                     <b class="alert-success"> Urgent </b>
                                     @endif
                                 </td>
-                                <!-- <a href="/problems_edit/{{$problemslists->id }}" class="btn btn-warning btn-sm"><i
-                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a>  -->
-                                <td class="text-center"> <a href="/view_problemslist/{{$problemslists->id }}" class="btn btn-info btn-sm"
-                                       >View</a> </td>
-                                
-                                <!-- <td class="text-center"><a href="/problems_edit/{{$problemslists->id }}"
+                                <td class="text-center"><a href="/problems_edit/{{$problemslists->id }}"
                                         class="btn btn-success btn-sm"><i class="fa fa-check-square"
-                                            aria-hidden="true"></i> Accent</a></td> -->
+                                            aria-hidden="true"></i> Accent</a></td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -49,7 +44,6 @@
             </div>
         </div> <br>
 </div>
-
 @endsection
 
 <!-- MAIL_FROM_ADDRESS= sopmodzx@gmail.com

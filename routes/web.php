@@ -46,4 +46,6 @@ Route::group(['middlewere' => ['web', 'auth']], function () {
 });
 
 Route::get('/admin', 'AdminController@index');
-Route::get('/manage', 'AdminController@manage');
+Route::get('/manage', 'AdminController@manage')->name('manage');
+Route::get('/view_problemslist/{id}', 'AdminController@view')->name('view');
+// Route::get('/view_problemslist/{id}', 'AdminController@test');

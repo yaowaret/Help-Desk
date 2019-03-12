@@ -197,4 +197,12 @@ padding : 50px 0;
 .banner-text h2:after{content:" "; width:100px; height:5px; background:#FFF; display:block; margin-top:20px; border-radius:3px;}
 .banner-text p{color:#fff;}
 
+body{
+  background-image: linear-gradient(to right, #e9defa 0%, #fbfcdb 100%);
+  /* background-image: linear-gradient(to right, #fff1eb 0%, #ace0f9 100%); */
+}
+
+
+/* ............... */
+
 
