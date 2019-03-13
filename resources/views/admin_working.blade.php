@@ -1,16 +1,9 @@
-<div class="container">
-    <br>
-    <br>
-    <br>
-    <br>
 
-    <span class="badge badge-dark">Work that has not been done</span>
+
+<h5> <span class="badge badge-dark">Work that has not been done.</span></h5>
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card">
-                <!-- <div class="card-header"><p> <b>Name: </b> {{ Auth::user()->name }} <b>Position: </b> {{ Auth::user()->position }} <b>Location: </b>
-        {{ Auth::user()->location }}</div> -->
-                <table class="table table-hover">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Date</th>
@@ -19,9 +12,7 @@
                             <th scope="col">In case of</th>
                             <th scope="col">Status</th>
                             <th scope="col">Authorities</th>
-                            
-
-                            <th></th>
+                            <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,6 +24,14 @@
                             <td>{{ $problemslistworkings->device }}</td>
                             <td>{{ $problemslistworkings->device_problem }}</td>
                             <td>{{ $problemslistworkings->case }}</td>
+                            <!-- <td>@if ($problemslistworkings->case == "Enereent")
+                                <span class="badge badge-danger">Enereent</span>
+                                @elseif ($problemslists->case == "Urgent")
+                                <span class="badge badge-warning">Urgent</span>
+                                @elseif ($problemslists->case == "Non-Urgent")
+                                <span class="badge badge-success">Non-Urgent</span>
+                                @endif
+                            </td> -->
                             <th>
 
                                 @if($problemslistworkings->status == 0)
@@ -45,22 +44,9 @@
                                 @endif
 
                             </th>
-
-
-                            <td>
-
-                            </td>
-
-                            
-                            <td>
-                                @if($problemslistworkings->status == 1)
-                                <form id="status-form-{{ $problemslists->id }}"
-                                    action="{{ route('problemslists.status',$problemslists->id) }}"
-                                    style="display: none;" method="POST">
-                                    @csrf
-                                </form>
-                                <button type="button" class="btn btn-success btn-sm" onclick="if(confirm('Are you Finish?'))"><i class="material-icons">Finish</i></button>
-                                @endif
+                            <td></td>
+                            <td class="text-center">
+                    
                             </td>
                         </tr>
                         @endforeach
