@@ -18,7 +18,7 @@ class Requestproblem extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'position', 'location', 'tel', 'email', 'password', 'device', 'device_problem', 'case','user_id',
+        'name', 'position', 'location', 'tel', 'email', 'password', 'device', 'device_problem', 'case','user_id','status',
     ];
 
     

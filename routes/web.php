@@ -29,6 +29,7 @@ Route::get('/problems_edit/{id}', 'Request_ProblemController@edit')->name('edit'
 Route::get('/update/{id}', 'Request_ProblemController@update')->name('update');
 Route::get('problems_edit', 'Request_ProblemController@problems_edit')->name('problems_edit');
 
+Route::post('problemslists/{id}','AdminController@status')->name('problemslists.status');
 Route::group(['middlewere' => ['web', 'auth']], function () {
     Route::get('/', function () {
         return view('welcome');
@@ -38,8 +39,9 @@ Route::group(['middlewere' => ['web', 'auth']], function () {
         if (Auth::user()->status == 0) {
             return view('users.problems');
         } else {
-            $problemslist['problemslist'] = \App\Requestproblem::all();
-            return view('admin', $problemslist);
+            $problemslist['problemslist'] = \App\Requestproblem::where('status',false)->get(); 
+            $problemslistworking['problemslistworking'] = \App\Requestproblem::where('status',true)->get(); 
+            return view('admin', $problemslist,$problemslistworking);
         }
     });
 

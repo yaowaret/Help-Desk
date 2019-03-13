@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use DB;
 use Auth;
+use App\Requestproblem;
+use App\Status;
 
 class AdminController extends Controller
 {
@@ -34,6 +36,13 @@ class AdminController extends Controller
         $fake_delete->fake_delete = "1";
         $fake_delete->save();
         return redirect()->route('manage');
+    }
+
+    public function status($id){
+        $problemslists = status::find($id);
+        $problemslists->status = true;
+        $problemslists->save();
+        return redirect()->back();
     }
 
     
