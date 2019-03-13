@@ -98,6 +98,7 @@ class Request_ProblemController extends Controller
         DB::table('requestproblems')->where('id', $id)->delete();
         return redirect()->route('problems_list')->with('succes', 'ลบข้อมูลเรียบร้อย');
     }
+    
     public function request_all(Request $request)
     {
         $requestproblem = new Requestproblem;

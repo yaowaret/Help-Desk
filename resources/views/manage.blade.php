@@ -44,7 +44,7 @@
                             <td></td>
                             <td class="text-center"> <a href="/view_problemslist/{{$problemslists->id }}"
                                     class="btn btn-view btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></a> ||
-                                <a class="btn btn-danger btn-sm" href="/delete/{{$problemslists->id }}"
+                                <a class="btn btn-danger btn-sm" href="/admin/fake_delete/{{$problemslists->id }}"
                                     onclick="return confirm('Are you sure to delete?')">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                             </td>

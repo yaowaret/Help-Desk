@@ -16,7 +16,7 @@ class AdminController extends Controller
 
     public function manage()
     {
-        $problemslist = DB::select('select * from requestproblems');
+        $problemslist = \App\Requestproblem::where('fake_delete', '=', null)->get();
         return view('manage', ['problemslist' => $problemslist]);
     }
 
@@ -29,10 +29,12 @@ class AdminController extends Controller
     return view('view_problemslist', ['problemslist' => $problemslist]);
     }
 
-    public function vieww()
-    {
-        $problemslist = DB::select('select * from requestproblems');
-        return view('vieww', ['problemslist' => $problemslist]);
+    public function fake_delete($id) {
+        $fake_delete = \App\Requestproblem::find($id);
+        $fake_delete->fake_delete = "1";
+        $fake_delete->save();
+        return redirect()->route('manage');
     }
+
     
 }

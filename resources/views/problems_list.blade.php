@@ -1,26 +1,14 @@
 @extends('layouts.app')
 @section('content')
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script language="JavaScript" src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script language="JavaScript" src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"
-    type="text/javascript"></script>
-<script language="JavaScript"
-    src="https://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.js"
-    type="text/javascript"></script>
-<link rel="stylesheet" type="text/css"
-    href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.css">
 
 <div class="container">
     <div class="row">
-        <h2 class="text-center">
+        <div class="col-md-12">
+        <h5>
             <meta name="csrf-token" content="{{ csrf_token() }}">
             <p> <b>Name: </b> {{ Auth::user()->name }} <b>Position: </b> {{ Auth::user()->position }} <b>Location: </b>
                 {{ Auth::user()->location }}
-        </h2>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
+        </h5>
             <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
@@ -41,7 +29,14 @@
                         <td>{{ $problemslists->created_at }}</td>
                         <td>{{ $problemslists->device }}</td>
                         <td>{{ $problemslists->device_problem }}</td>
-                        <td>{{ $problemslists->case }}</td>
+                        <td>@if ($problemslists->case == "Enereent")
+                                <span class="badge badge-danger">Enereent</span>
+                                @elseif ($problemslists->case == "Urgent")
+                                <span class="badge badge-warning">Urgent</span>
+                                @elseif ($problemslists->case == "Non-Urgent")
+                                <span class="badge badge-success">Non-Urgent</span>
+                                @endif
+                            </td>
                         <td></td>
                         <td></td>
                         <!-- <td>@if($problemslists->case==0)
