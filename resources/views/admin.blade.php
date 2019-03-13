@@ -2,12 +2,9 @@
 
 @section('content')
 
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
 <div class="container">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <p> <b>Work has not been accepted.</b>
+    <h5>  <span class="badge badge-success">Work has not been accepted.</span></h5>
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <!-- <div class="card"> -->
@@ -38,7 +35,7 @@
                             </td>
                             <td></td>
                             <td class="text-center"><a href="/problems_edit/{{$problemslists->id }}"
-                                    class="btn btn-success btn-sm"><i class="fa fa-check-square" aria-hidden="true"></i>
+                                    class="btn btn-accept btn-sm"><i class="fa fa-check-square" aria-hidden="true"></i>
                                     Accept</a></td>
                         </tr>
                         @endforeach

@@ -139,9 +139,9 @@ iframe
 
 .btn {
 display: inline-block;
-padding: 6px 12px !important;
+padding: 4px 8px !important;
 margin-bottom: 0;
-font-size: 14px;
+font-size: 11px;
 font-weight: 400;
 line-height: 1.42857143;
 text-align: center;
@@ -171,6 +171,40 @@ background: #d9534f !important;
 border-color: #d9534f !important;
 box-shadow:none !important;
 }
+.btn-accept {
+  color: #fff !important;
+  background: #008080 !important;
+  border-color: #357ebd !important;
+  box-shadow:none !important;
+  }
+.btn-view {
+color: rgb(0, 0, 0) !important;
+background: rgb(255, 255, 255) !important;
+border-color: rgb(192, 183, 183) !important; 
+box-shadow:none !important;
+}
+
+  /* button case */
+.badge-danger {
+  color: #fff !important;
+  background: #B22222 !important;
+  border-color: #A52A2A !important;
+  box-shadow:none !important;
+  }
+.badge-warning {
+  color: #fff !important;
+  background: #FFA500 !important;
+  border-color: #FF8C00 !important;
+  box-shadow:none !important;
+  }
+.badge-success {
+  color: #fff !important;
+  background: #006400 !important;
+  border-color: #5F9EA0 !important;
+  box-shadow:none !important;
+  }
+
+  /* Login page */
 
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 .login-block{
@@ -197,10 +231,9 @@ padding : 50px 0;
 .banner-text h2:after{content:" "; width:100px; height:5px; background:#FFF; display:block; margin-top:20px; border-radius:3px;}
 .banner-text p{color:#fff;}
 
-body{
+/* body{
   background-image: linear-gradient(to right, #e9defa 0%, #fbfcdb 100%);
-  /* background-image: linear-gradient(to right, #fff1eb 0%, #ace0f9 100%); */
-}
+} */
 
 
 /* ............... */

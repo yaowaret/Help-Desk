@@ -51,7 +51,7 @@
                                     @endif
                                 </td> -->
                         <td class="text-center">
-                            <a href="/problems_edit/{{$problemslists->id }}" class="btn btn-warning btn-sm"><i
+                            <a href="/problems_edit/{{$problemslists->id }}" class="btn btn-primary btn-sm"><i
                                     class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ||
                             <a class="btn btn-danger btn-sm" href="/delete/{{$problemslists->id }}"
                                 onclick="return confirm('Are you sure to delete?')">

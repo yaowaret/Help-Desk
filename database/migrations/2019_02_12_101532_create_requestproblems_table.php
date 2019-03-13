@@ -24,6 +24,7 @@ class CreateRequestproblemsTable extends Migration
             $table->string('device');
             $table->string('device_problem');
             $table->string('case');
+            $table->string('fake_delete');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
