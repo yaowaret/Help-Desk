@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -58,7 +58,11 @@
                     <li class="nav-item">
                         <a class="nav-link" a href="/home">
                             Repair List
-                            <span class="badge badge-danger">11</span>
+                            @foreach ($notify as $notification)
+                            <span class="badge badge-danger">
+                                {{ $notification->total }}
+                            </span>
+                            @endforeach
                         </a>
                     </li>
 
@@ -92,8 +96,7 @@
 
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i
                                         class="fa fa-sign-out" aria-hidden="true"></i>
                                     {{ __('Logout') }}

@@ -38,11 +38,14 @@ Route::group(['middlewere' => ['web', 'auth']], function () {
 
     Route::get('/home', function () {
         if (Auth::user()->status == 0) {
-            return view('users.problems');
+            $user_id = Auth::id();
+            $notify = DB::select("SELECT COUNT(*) AS total FROM requestproblems WHERE status = 2 AND user_id = $user_id");
+            return view('users.problems', compact('notify'));
         } else {
-            $problemslist['problemslist'] = \App\Requestproblem::where('status', '=', 0)->get(); 
-            $problemslistworking['problemslistworking'] = \App\Requestproblem::where('status', '=', 1)->get(); 
-            return view('admin', $problemslist,$problemslistworking);
+            $notify = DB::select("SELECT COUNT(*) AS total FROM requestproblems WHERE status = 0");
+            $problemslist = \App\Requestproblem::where('status', '=', 0)->get(); 
+            $problemslistworking  = \App\Requestproblem::where('status', '=', 1)->get(); 
+            return view('admin', compact('problemslist','problemslistworking','notify'));
         }
     });
 

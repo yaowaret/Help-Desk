@@ -56,11 +56,23 @@
                                     @endif
                                 </td> -->
                         <td class="text-center">
+                            @if($problemslists->status == 0)
                             <a href="/problems_edit/{{$problemslists->id }}" class="btn btn-primary btn-sm"><i
                                     class="fa fa-pencil-square-o" aria-hidden="true"></i></a> ||
                             <a class="btn btn-danger btn-sm" href="/delete/{{$problemslists->id }}"
                                 onclick="return confirm('Are you sure to delete?')">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                            @elseif($problemslists->status == 1)
+                            <a class="btn btn-not btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            ||
+                            <a class="btn btn-not btn-sm">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                            @elseif($problemslists->status == 2)
+                            <a class="btn btn-not btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            ||
+                            <a class="btn btn-not btn-sm">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                            @endif
                         </td>
 
                         <td class="text-center"> @if($problemslists->status == 0)
@@ -71,12 +83,12 @@
                             <a class="btn btn-not btn-sm">
                                 <i class="fa fa-check-square" aria-hidden="true"></i>
                                 Confirm</a>
-                                @elseif($problemslists->status == 2)
-                                <a class="btn btn-accept btn-sm" href="/user/confirm/{{$problemslists->id }}"
+                            @elseif($problemslists->status == 2)
+                            <a class="btn btn-accept btn-sm" href="/user/confirm/{{$problemslists->id }}"
                                 onclick="return confirm('Are you sure to finish?')">
                                 <i class="fa fa-check-square" aria-hidden="true"></i>
                                 Confirm</a>
-                                @endif
+                            @endif
                     </tr>
                     @endforeach
                 </tbody>
