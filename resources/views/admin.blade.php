@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <!-- <div class="card"> -->
-            <table class="table table-bordered">
+            <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th scope="col">Date</th>
@@ -43,31 +43,11 @@
                             @endif
 
                         </th>
-                        <td class="text-center">@if($problemslists->status == 0)
-                            <form id="status-form-{{ $problemslists->id }}"
-                                action="{{ route('problemslists.status',$problemslists->id) }}" style="display: none;"
-                                method="POST">
-                                @csrf
-                            </form>
-                            <button type="button" class="btn btn-accept btn-sm" onclick="if(confirm('Are you Accept?')){
-                                                            event.preventDefault();
-                                                            document.getElementById('status-form-{{ $problemslists->id }}').submit();
-                                                            }else {
-                                                            event.preventDefault();
-                                                            }"><i class="fa fa-check-square" aria-hidden="true"></i>
-                                Accept</button>
-
-
-                            @else
-                            <form id="status-form-{{ $problemslists->id }}"
-                                action="{{ route('problemslists.status',$problemslists->id) }}" style="display: none;"
-                                method="POST">
-                                @csrf
-                            </form>
-                            <button type="button" class="btn btn-accept btn-sm"><i
-                                    class="material-icons">Finish</i></button>
-
-                            @endif
+                        <td class="text-center">
+                            <a class="btn btn-accept btn-sm" href="/admin/status/{{$problemslists->id }}"
+                                onclick="return confirm('Are you sure to delete?')">
+                                <i class="fa fa-check-square" aria-hidden="true"></i>
+                                Accept</a></td>
                         </td>
                     </tr>
                     @endforeach
@@ -83,7 +63,7 @@
     <h5> <span class="badge badge-dark">Work that has not been done</span></h5>
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <table class="table table-bordered">
+            <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th scope="col">Date</th>
@@ -92,6 +72,7 @@
                         <th scope="col">In case of</th>
                         <th scope="col">Status</th>
                         <th scope="col">Authorities</th>
+                        <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -121,6 +102,15 @@
                             @endif
                         </th>
                         <td></td>
+                        <td class="text-center">
+                        <a class="btn btn-accept btn-sm" href="/admin/finish/{{$problemslistworkings->id }}"
+                                onclick="return confirm('Are you sure to finish?')">
+                                <i class="fa fa-check-square" aria-hidden="true"></i>
+                                Finish</a> ||
+                            <a class="btn btn-danger btn-sm" href="/admin/status_cancel/{{$problemslistworkings->id }}"
+                                onclick="return confirm('Are you sure to cancel?')">
+                                <i class="fa fa-ban" aria-hidden="true"></i> Cancel</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

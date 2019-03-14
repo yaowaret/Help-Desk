@@ -17,7 +17,8 @@ class Request_ProblemController extends Controller
      */
     public function index()
     {
-        return view('users.problems');
+        $notify = DB::select("SELECT COUNT(*) AS total FROM requestproblems WHERE status = 2 AND user_id = $user_id ");
+        return view('users.problems', compact('notify'));
     }
 
     /**
@@ -47,9 +48,9 @@ class Request_ProblemController extends Controller
     public function problems_list(Request $request)
     {
         $user_id = Auth::id();
-        $problemslist = Requestproblem::where('user_id', '=', $user_id)->get();
-        // dd($problemslist);
-        return view('problems_list', ['problemslist' => $problemslist]);
+        $problemslist = Requestproblem::where('user_id', '=', $user_id)->where('status','!=',3)->get();
+        $notify = DB::select("SELECT COUNT(*) AS total FROM requestproblems WHERE status = 2 AND user_id = $user_id");
+        return view('problems_list', compact('problemslist', 'notify'));
     }
 
     /**
@@ -60,8 +61,10 @@ class Request_ProblemController extends Controller
      */
     public function edit($id)
     {
+        $user_id = Auth::id();
         $problemslist = Requestproblem::find($id);
-        return view('problems_edit', compact('problemslist'));
+        $notify = DB::select("SELECT COUNT(*) AS total FROM requestproblems WHERE status = 2 AND user_id = $user_id");
+        return view('problems_edit', compact('problemslist', 'notify'));
     }
 
     /**
@@ -98,7 +101,21 @@ class Request_ProblemController extends Controller
         DB::table('requestproblems')->where('id', $id)->delete();
         return redirect()->route('problems_list')->with('succes', 'ลบข้อมูลเรียบร้อย');
     }
-    
+    public function app()
+    {
+        //$problemslist = Requestproblem::all();
+        $user_id = Auth::id();
+        $notify = DB::select("SELECT COUNT(*) AS total FROM requestproblems WHERE status = 2 AND user_id = $user_id");
+        return view('layouts.app', ['notify' => $notify]);
+
+        // $users = DB::table('users')
+        //     ->select(DB::raw('count(*) as user_count, status'))
+        //     ->where('status', '<>', 1)
+        //     ->groupBy('status')
+        //     ->get();
+        // x = \App\Table::where('column_1','=',$condition1)->where('column_2','<',condition2)->get()
+    }
+
     public function request_all(Request $request)
     {
         $requestproblem = new Requestproblem;
@@ -128,6 +145,13 @@ class Request_ProblemController extends Controller
             'device_problem' => ['required', 'string', 'max:255'],
             'case' => ['required', 'string', 'max:255'],
         ]);
+    }
+    public function confirm($id)
+    {
+        $problemslists = \App\Requestproblem::find($id);
+        $problemslists->status = "3";
+        $problemslists->save();
+        return redirect()->back();
     }
 
 }

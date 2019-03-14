@@ -40,8 +40,21 @@ class AdminController extends Controller
 
     public function status($id){
         $problemslists = status::find($id);
-        $problemslists->status = true;
+        $problemslists->status = "1";
         $problemslists->save();
+        return redirect()->back();
+    }
+
+    public function status_cancel($id){
+        $problemslistworkings = \App\Requestproblem::find($id);
+        $problemslistworkings->status = "0";
+        $problemslistworkings->save();
+        return redirect()->back();
+    }
+    public function finish($id){
+        $problemslistworkings = \App\Requestproblem::find($id);
+        $problemslistworkings->status = "2";
+        $problemslistworkings->save();
         return redirect()->back();
     }
 

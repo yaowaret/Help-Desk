@@ -19,8 +19,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('request_all', 'Request_ProblemController@request_all')->name('request_all');
-// Route::resource('problems','Request_ProblemController');
 Route::get('/problems_list', 'Request_ProblemController@problems_list')->name('problems_list');
+
+Route::get('/app', 'Request_ProblemController@app');
 
 Route::get('/delete/{id}', 'Request_ProblemController@delete');
 Route::get('/problems', 'Request_ProblemController@index')->name('problems');
@@ -39,8 +40,8 @@ Route::group(['middlewere' => ['web', 'auth']], function () {
         if (Auth::user()->status == 0) {
             return view('users.problems');
         } else {
-            $problemslist['problemslist'] = \App\Requestproblem::where('status',false)->get(); 
-            $problemslistworking['problemslistworking'] = \App\Requestproblem::where('status',true)->get(); 
+            $problemslist['problemslist'] = \App\Requestproblem::where('status', '=', 0)->get(); 
+            $problemslistworking['problemslistworking'] = \App\Requestproblem::where('status', '=', 1)->get(); 
             return view('admin', $problemslist,$problemslistworking);
         }
     });
@@ -54,3 +55,7 @@ Route::get('/view_problemslist/{id}', 'AdminController@view')->name('view');
 // Route::get('/view_problemslist/{id}', 'AdminController@test');
 
 Route::get('/admin/fake_delete/{id}','AdminController@fake_delete');
+Route::get('/admin/status/{id}','AdminController@status');
+Route::get('/admin/status_cancel/{id}','AdminController@status_cancel');
+Route::get('/admin/finish/{id}','AdminController@finish');
+Route::get('/user/confirm/{id}','Request_ProblemController@confirm');

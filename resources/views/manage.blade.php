@@ -16,7 +16,7 @@
                             <th scope="col">Device Problems</th>
                             <th scope="col">In case of</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Finish</th>
+                            <th scope="col" class="text-center">Finish</th>
                             <th scope="col">Authorities</th>
                             <th scope="col" class="text-center">Action</th>
                         </tr>

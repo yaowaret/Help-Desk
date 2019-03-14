@@ -4,12 +4,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-        <h5>
-            <meta name="csrf-token" content="{{ csrf_token() }}">
-            <p> <b>Name: </b> {{ Auth::user()->name }} <b>Position: </b> {{ Auth::user()->position }} <b>Location: </b>
-                {{ Auth::user()->location }}
-        </h5>
-            <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <h5>
+                <meta name="csrf-token" content="{{ csrf_token() }}">
+                <p> <b>Name: </b> {{ Auth::user()->name }} <b>Position: </b> {{ Auth::user()->position }} <b>Location:
+                    </b>
+                    {{ Auth::user()->location }}
+            </h5>
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">Date</th>
@@ -30,14 +31,23 @@
                         <td>{{ $problemslists->device }}</td>
                         <td>{{ $problemslists->device_problem }}</td>
                         <td>@if ($problemslists->case == "Enereent")
-                                <span class="badge badge-danger">Enereent</span>
-                                @elseif ($problemslists->case == "Urgent")
-                                <span class="badge badge-warning">Urgent</span>
-                                @elseif ($problemslists->case == "Non-Urgent")
-                                <span class="badge badge-success">Non-Urgent</span>
-                                @endif
-                            </td>
-                        <td></td>
+                            <span class="badge badge-danger">Enereent</span>
+                            @elseif ($problemslists->case == "Urgent")
+                            <span class="badge badge-warning">Urgent</span>
+                            @elseif ($problemslists->case == "Non-Urgent")
+                            <span class="badge badge-success">Non-Urgent</span>
+                            @endif
+                        </td>
+                        <th>
+                            @if($problemslists->status == 0)
+                            <span class="label label-info">Waiting for confirmation</span>
+                            @elseif($problemslists->status == 1)
+                            <span class="label label-danger">Working...</span>
+                            @elseif($problemslists->status == 2)
+                            <span class="label label-danger">Please confirm</span>
+                            @endif
+
+                        </th>
                         <td></td>
                         <!-- <td>@if($problemslists->case==0)
                                     <b class="alert-danger"> Enereent </b>
@@ -53,9 +63,20 @@
                                 <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                         </td>
 
-                        <td class="text-center"><a href="/problems_edit/{{$problemslists->id }}"
-                                class="btn btn-secondary btn-sm"><i class="fa fa-check-square" aria-hidden="true"></i>
-                                Confirm</a></td>
+                        <td class="text-center"> @if($problemslists->status == 0)
+                            <a class="btn btn-not btn-sm">
+                                <i class="fa fa-check-square" aria-hidden="true"></i>
+                                Confirm</a>
+                            @elseif($problemslists->status == 1)
+                            <a class="btn btn-not btn-sm">
+                                <i class="fa fa-check-square" aria-hidden="true"></i>
+                                Confirm</a>
+                                @elseif($problemslists->status == 2)
+                                <a class="btn btn-accept btn-sm" href="/user/confirm/{{$problemslists->id }}"
+                                onclick="return confirm('Are you sure to finish?')">
+                                <i class="fa fa-check-square" aria-hidden="true"></i>
+                                Confirm</a>
+                                @endif
                     </tr>
                     @endforeach
                 </tbody>
@@ -67,6 +88,7 @@
     </div>
 </div>
 </div>
+
 
 @endsection
 
