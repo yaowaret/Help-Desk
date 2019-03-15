@@ -5,16 +5,22 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Requestproblem;
 use App\Status;
-use DB;
 use Auth;
+use DB;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $notify = DB::select("SELECT COUNT(*) AS total FROM requestproblems WHERE status = 0");
-        $problemslist = DB::select('select * from requestproblems');
-        return view('admin', compact('problemslist', 'notify'));
+        $problemslist = \App\Requestproblem::where('status', '=', 0)->get();
+        $problemslistworking = \App\Requestproblem::where('status', '=', 1)->get();
+        return view('admin', compact('problemslist', 'problemslistworking', 'notify'));
     }
 
     public function manage()

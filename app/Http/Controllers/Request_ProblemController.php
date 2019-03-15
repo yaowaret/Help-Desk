@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class Request_ProblemController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('user');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +21,7 @@ class Request_ProblemController extends Controller
      */
     public function index()
     {
+        $user_id = Auth::id();
         $notify = DB::select("SELECT COUNT(*) AS total FROM requestproblems WHERE status = 2 AND user_id = $user_id ");
         return view('users.problems', compact('notify'));
     }
@@ -101,13 +106,7 @@ class Request_ProblemController extends Controller
         DB::table('requestproblems')->where('id', $id)->delete();
         return redirect()->route('problems_list')->with('succes', 'ลบข้อมูลเรียบร้อย');
     }
-    // public function app()
-    // {
-    //     //$problemslist = Requestproblem::all();
-    //     $user_id = Auth::id();
-    //     $notify = DB::select("SELECT COUNT(*) AS total FROM requestproblems WHERE status = 2 AND user_id = $user_id");
-    //     return view('layouts.app', ['notify' => $notify]);
-    // }
+
 
     public function request_all(Request $request)
     {
@@ -146,5 +145,21 @@ class Request_ProblemController extends Controller
         $problemslists->save();
         return redirect()->back();
     }
+    public function cancel($id)
+    {
+        $problemslists = \App\Requestproblem::find($id);
+        $problemslists->status = "1";
+        $problemslists->save();
+        return redirect()->back();
+    }
+
+    public function profile($id)
+    {
+        dd($id);
+        $problemslist['problemslist'] = \App\User::find($id);
+        // return $problemslist;
+        return view('profile', compact('problemslist'));
+    }
+    
 
 }

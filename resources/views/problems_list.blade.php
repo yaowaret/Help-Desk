@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+        
             <h5>
                 <meta name="csrf-token" content="{{ csrf_token() }}">
                 <p> <b>Name: </b> {{ Auth::user()->name }} <b>Position: </b> {{ Auth::user()->position }} <b>Location:
@@ -85,9 +86,12 @@
                                 Confirm</a>
                             @elseif($problemslists->status == 2)
                             <a class="btn btn-accept btn-sm" href="/user/confirm/{{$problemslists->id }}"
-                                onclick="return confirm('Are you sure to finish?')">
+                                onclick="return confirm('Are you sure to Confirm?')">
                                 <i class="fa fa-check-square" aria-hidden="true"></i>
-                                Confirm</a>
+                                Confirm</a> || <a class="btn btn-danger btn-sm"
+                                href="/user/cancel/{{$problemslists->id }}"
+                                onclick="return confirm('Are you sure to Cancel?')">
+                                <i class="fa fa-ban" aria-hidden="true"></i> Cancel</a>
                             @endif
                     </tr>
                     @endforeach

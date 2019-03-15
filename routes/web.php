@@ -62,3 +62,6 @@ Route::get('/admin/status/{id}','AdminController@status');
 Route::get('/admin/status_cancel/{id}','AdminController@status_cancel');
 Route::get('/admin/finish/{id}','AdminController@finish');
 Route::get('/user/confirm/{id}','Request_ProblemController@confirm');
+Route::get('/user/cancel/{id}','Request_ProblemController@cancel');
+
+Route::get('/profile/{id}', 'Request_ProblemController@profile')->name('profile');

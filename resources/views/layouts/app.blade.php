@@ -95,7 +95,7 @@
                                             class="fa fa-sign-out" aria-hidden="true"></i>
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-user" aria-hidden="true"></i>
+                                    <a class="dropdown-item" href="/profile/{$id}"><i class="fa fa-user" aria-hidden="true"></i>
                                         Profile</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
