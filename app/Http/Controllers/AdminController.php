@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Requestproblem;
 use App\Status;
 use DB;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -45,6 +46,7 @@ class AdminController extends Controller
     {
         $problemslists = status::find($id);
         $problemslists->status = "1";
+        $problemslists->authorities = Auth::user()->name;
         $problemslists->save();
         return redirect()->back();
     }
@@ -53,6 +55,7 @@ class AdminController extends Controller
     {
         $problemslistworkings = \App\Requestproblem::find($id);
         $problemslistworkings->status = "0";
+        $problemslistworkings->authorities = null;
         $problemslistworkings->save();
         return redirect()->back();
     }

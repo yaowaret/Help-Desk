@@ -36,12 +36,23 @@
                                 <span class="badge badge-success">Non-Urgent</span>
                                 @endif
                             </td>
-                            <td></td>
+                            <th>
+                                @if($problemslists->status == 0)
+                                <span class="label label-info">Waiting for work</span>
+                                @elseif($problemslists->status == 1)
+                                <span class="label label-danger">Working...</span>
+                                @elseif($problemslists->status == 2)
+                                <span class="label label-danger">Waiting for confirmation</span>
+                                @elseif($problemslists->status == 3)
+                                <span class="label label-danger">Finish</span>
+                                @endif
+
+                            </th>
                             <td class="text-center"><a href="/problems_edit/{{$problemslists->id }}"
                                     class="btn btn-secondary btn-sm"><i class="fa fa-check-square"
                                         aria-hidden="true"></i>
                                     Finish</a></td>
-                            <td></td>
+                            <td class="text-center">{{$problemslists->authorities}}</td>
                             <td class="text-center"> <a href="/view_problemslist/{{$problemslists->id }}"
                                     class="btn btn-view btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></a> ||
                                 <a class="btn btn-danger btn-sm" href="/admin/fake_delete/{{$problemslists->id }}"

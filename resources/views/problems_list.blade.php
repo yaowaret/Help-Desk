@@ -48,7 +48,7 @@
                             @endif
 
                         </th>
-                        <td></td>
+                        <td class="text-center">{{$problemslists->authorities}}</td>
                         <!-- <td>@if($problemslists->case==0)
                                     <b class="alert-danger"> Enereent </b>
                                     @else

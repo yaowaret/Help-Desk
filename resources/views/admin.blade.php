@@ -44,6 +44,8 @@
 
                         </th>
                         <td class="text-center">
+                        <a href="/view_problemslist/{{$problemslists->id }}"
+                                    class="btn btn-view btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></a> ||
                             <a class="btn btn-accept btn-sm" href="/admin/status/{{$problemslists->id }}"
                                 onclick="return confirm('Are you sure to delete?')">
                                 <i class="fa fa-check-square" aria-hidden="true"></i>
@@ -101,7 +103,7 @@
 
                             @endif
                         </th>
-                        <td></td>
+                        <td class="text-center">{{$problemslistworkings->authorities}}</td>
                         <td class="text-center">
                         <a class="btn btn-accept btn-sm" href="/admin/finish/{{$problemslistworkings->id }}"
                                 onclick="return confirm('Are you sure to finish?')">
