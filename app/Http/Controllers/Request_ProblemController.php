@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Requestproblem;
+use App\User;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
@@ -153,13 +154,53 @@ class Request_ProblemController extends Controller
         return redirect()->back();
     }
 
-    public function profile($id)
+    // public function profile($id)
+    // {
+        
+    //     $user_id = Auth::id();
+    //     $id = \Auth::user()->id;
+    //     $notify = DB::select("SELECT COUNT(*) AS total FROM requestproblems WHERE status = 2 AND user_id = $user_id");
+    //     $problemslist = \App\User::find($id);
+    //     return view('profile', compact('problemslist','notify'));
+    // }
+    public function profile(Request $request)
     {
-        dd($id);
-        $problemslist['problemslist'] = \App\User::find($id);
+        $id = \Auth::user()->id;
+        $user_id = Auth::id();
+        $problemslist = \App\User::find($id);
         // return $problemslist;
-        return view('profile', compact('problemslist'));
+        $notify = DB::select("SELECT COUNT(*) AS total FROM requestproblems WHERE status = 2 AND user_id = $user_id");
+        return view('profile', compact('problemslist','notify'));
     }
-    
+
+      /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_profile(Request $request, $id)
+    {
+        $requestproblem = User::find($id);
+        $requestproblem->name = $request->name;
+        $requestproblem->position = $request->position;
+        $requestproblem->location = $request->location;
+        $requestproblem->tel = $request->tel;
+        $requestproblem->email = $request->email;
+        $requestproblem->save();
+
+        return redirect()->route('view_profile')->with('success', 'บันทึกข้อมูลเรียบร้อย');
+    }
+
+    public function view_profile(Request $request)
+    {
+        $id = \Auth::user()->id;
+        $user_id = Auth::id();
+        $problemslist = \App\User::find($id);
+        // return $problemslist;
+        $notify = DB::select("SELECT COUNT(*) AS total FROM requestproblems WHERE status = 2 AND user_id = $user_id");
+        return view('view_profile', compact('problemslist','notify'));
+    }
 
 }

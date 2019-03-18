@@ -64,4 +64,7 @@ Route::get('/admin/finish/{id}','AdminController@finish');
 Route::get('/user/confirm/{id}','Request_ProblemController@confirm');
 Route::get('/user/cancel/{id}','Request_ProblemController@cancel');
 
-Route::get('/profile/{id}', 'Request_ProblemController@profile')->name('profile');
+Route::get('/profile', 'Request_ProblemController@profile')->name('profile');
+Route::get('/update_profile/{id}', 'Request_ProblemController@update_profile')->name('update_profile');
+Route::get('/view_profile', 'Request_ProblemController@view_profile')->name('view_profile');
+// Route::get('/profile', 'Request_ProblemController@profile')->name('profile');

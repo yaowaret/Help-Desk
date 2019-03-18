@@ -43,15 +43,10 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" a href="/problems_list">
-                            Reprot
-                        </a>
-                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" a href="/manage">
-                            Manage
+                            Reprot
                         </a>
                     </li>
 
@@ -101,8 +96,6 @@
                                         class="fa fa-sign-out" aria-hidden="true"></i>
                                     {{ __('Logout') }}
                                 </a>
-                                <a class="dropdown-item" href="#"><i class="fa fa-user" aria-hidden="true"></i>
-                                    Profile</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">

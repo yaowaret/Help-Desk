@@ -4,7 +4,7 @@
 <div class="row justify-content-center">
     <div class="col-md-4">
         <div class="card">
-            <h5 class="card-header">Featured</h5>
+            <h5 class="card-header">Detail</h5>
             <div class="card-body">
                 <tbody>
                     <tr>
@@ -14,9 +14,16 @@
                         <p><b>Location : </b>{{ $problemslists->location }}</p>
                         <p><b>Device : </b>{{ $problemslists->device }}</p>
                         <p><b>Device Problems : </b>{{ $problemslists->device_problem }}</p>
-                        <p><b>Im case of : </b>{{ $problemslists->case }}</p>
-                        <p><b>Im case of : </b>{{ $problemslists->case }}</p>
-                        <p><b>Im case of : </b>{{ $problemslists->case }}</p>
+                        <p><b>In case of : </b>
+                        @if ($problemslists->case == "Enereent")
+                            <span class="badge badge-danger">Enereent</span>
+                            @elseif ($problemslists->case == "Urgent")
+                            <span class="badge badge-warning">Urgent</span>
+                            @elseif ($problemslists->case == "Non-Urgent")
+                            <span class="badge badge-success">Non-Urgent</span>
+                            @endif
+                        <p><b>Tel : </b>{{ $problemslists->tel }}</p>
+                        <p><b>E-mail : </b>{{ $problemslists->email }}</p>
 
                     </tr>
                     @endforeach
